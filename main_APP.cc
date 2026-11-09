@@ -12,6 +12,7 @@ private:
     double Weight, Calories, Proteins;
 
 public:
+    /*Ftiaxnw me ton constructora to proion pou sxetizetai me to faghto*/
     APP(string P_R, int P_ID, int DATE, double Wght, double Clrs, double Prtn)
     {
         Product_Name = P_R;
@@ -47,10 +48,11 @@ int main()
                 /*Vazw Stoixeia Gia Ta Prointa*/
                 /*---------------------------*/
                 /*Prwta Vazw To Onoma Prointos*/
+                cout << "Vale Onoma Proiontos" << endl;
                 getline(cin, Product_Name);
                 /*---------------------------*/
                 /*Meta Vazw Ton Monadiko Arithmo Tou Prointos*/
-                cin>>Product_ID;
+                cin >> Product_ID;
                 /*Isws Ftiaxw Sunarthsh*/
             }
         }
