@@ -24,6 +24,24 @@ public:
     }
 };
 
+/*Kommati Sunarthsewn*/
+
+double metatroph_varous(string *ep, double *wht)
+{
+    if (*ep == "A")
+    {
+        return *wht = *wht / 1000000;
+    }
+    else if (*ep == "B")
+    {
+        return *wht = *wht / 1000;
+    }
+    else if (*ep == "C")
+    {
+        return *wht;
+    }
+}
+
 int main()
 {
     cout << "KalwsHrthes Sir" << endl;
@@ -46,7 +64,39 @@ int main()
     cout << "Ntaxei Sir" << endl;
     for (int i = 0; i < count; i++)
     {
-        cout << "Divilis Sony" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Twra Mporeis Na Ftiaxeis" << count << "Prointa Gia Faghto" << endl;
+        cout << "--------------------------------" << endl;
+        /*Prwta Thelw Na Diavazw To Onoma Tou Proiontos*/
+        cin.ignore();
+        cout << "Vale Onoma Proiontos (Oti Thes)" << endl;
+        getline(cin, Product_Name);
+        cout << "--------------------------------" << endl;
+        cout << "To Onoma Einai " << Product_Name << endl;
+        cout << "--------------------------------" << endl;
+        /*Varos Tha Metatrepetai Panta Se kg*/
+        cout << "Dwse Varos Tou Proiontos" << endl;
+        cin >> Weight;
+        cout << "--------------------------------" << endl;
+        cout << "Se Ti Monada Metrhshs Einai To Varos Tou Prointos?(Epilexe A eite B eite C)" << endl;
+        cout << "--------------------------------" << endl;
+        string epilogh;
+        do
+        {
+            cout << "A.mg" << endl;
+            cout << "B.gr" << endl;
+            cout << "C.kg" << endl;
+            cout << "D.kamia" << endl;
+            cin >> epilogh;
+        } while (epilogh == "D");
+        cout << "To Proion Einai " << metatroph_varous(&epilogh, &Weight) << " Kila" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Dwse Thermides Gia To Proion" << endl;
+        cin >> Calories;
+        cout << "--------------------------------" << endl;
+        cout << "Dwse Proitenes Gia To Proion" << endl;
+        cin >> Proteins;
+        cout << "--------------------------------" << endl;
     }
     return 0;
 }
