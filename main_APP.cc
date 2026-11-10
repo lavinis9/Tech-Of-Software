@@ -31,35 +31,22 @@ int main()
     string Product_Name;
     int Product_ID, Expiration_Date;
     double Weight, Calories, Proteins;
-    try
+    cout << "Posa Prointa Theleis Na Eisageis???" << endl;
+    cout << "-----------------------------------" << endl;
+    cout << "Prepei Na Einai Ypoxrewtika MegaLutero Iso Tou 0" << endl;
+    cin >> count;
+    while (count <= 0)
     {
-        cout << "Posa Prointa Theleis Na Eisageis???" << endl;
-        cout << "-----------------------------------" << endl;
-        cout << "Prepei Na Einai Ypoxrewtika MegaLutero Tou 0" << endl;
+        cout << "Ksanavale Plithos" << endl;
+        cout << "--------------------" << endl;
+        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Plithos" << endl;
         cin >> count;
-        if (count <= 0)
-            throw logic_error("Einai Mikrotero Apo 0");
-        else
-        {
-            cout << "-----------------------------------" << endl;
-            cout << "Ftiaxnw Kanonika Ta Prointa" << endl;
-            for (int i = 0; i < count; i++)
-            {
-                /*Vazw Stoixeia Gia Ta Prointa*/
-                /*---------------------------*/
-                /*Prwta Vazw To Onoma Prointos*/
-                cout << "Vale Onoma Proiontos" << endl;
-                getline(cin, Product_Name);
-                /*---------------------------*/
-                /*Meta Vazw Ton Monadiko Arithmo Tou Prointos*/
-                cin >> Product_ID;
-                /*Isws Ftiaxw Sunarthsh*/
-            }
-        }
     }
-    catch (logic_error &e)
+    cout << "-------------------------------" << endl;
+    cout << "Ntaxei Sir" << endl;
+    for (int i = 0; i < count; i++)
     {
-        cout << "Den Mporeis Na Trexeis Thn Efarmogh Epeidh To Plithos Prointwn Sou " << e.what() << endl;
+        cout << "Divilis Sony" << endl;
     }
     return 0;
 }
