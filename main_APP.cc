@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <stdexcept>
+#include <istream>
 
 using namespace std;
 
@@ -41,7 +42,47 @@ double metatroph_varous(string *ep, double *wht)
         return *wht;
     }
 }
-
+/*          */
+/*         */
+double eisodos_varous(double *wh)
+{
+    while (*wh <= 0)
+    {
+        cout << "Ksanavale Varos" << endl;
+        cout << "--------------------" << endl;
+        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Varos" << endl;
+        cin >> *wh;
+    }
+    return *wh;
+}
+/*          */
+/*         */
+double eisodos_thermidwn(double *cl)
+{
+    while (*cl <= 0)
+    {
+        cout << "Ksanavale Thermides" << endl;
+        cout << "--------------------" << endl;
+        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Arithmo Thermidwn" << endl;
+        cin >> *cl;
+    }
+    return *cl;
+}
+/*          */
+/*         */
+double eisodos_proteinwn(double *pr)
+{
+    while (*pr <= 0)
+    {
+        cout << "Ksanavale Proteines" << endl;
+        cout << "--------------------" << endl;
+        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Arithmo Prwteinwn" << endl;
+        cin >> *pr;
+    }
+    return *pr;
+}
+/*          */
+/*         */
 int main()
 {
     cout << "KalwsHrthes Sir" << endl;
@@ -68,35 +109,42 @@ int main()
         cout << "Twra Mporeis Na Ftiaxeis" << count << "Prointa Gia Faghto" << endl;
         cout << "--------------------------------" << endl;
         /*Prwta Thelw Na Diavazw To Onoma Tou Proiontos*/
-        cin.ignore();
+        cin.ignore(); // Gia Na Glitwsw Tuxon Enapomeinanta Stoixeia Sto Input Buffer Kai Na Proxwrisw Me Epituxia Stis Epomenes Eisodous
         cout << "Vale Onoma Proiontos (Oti Thes)" << endl;
         getline(cin, Product_Name);
         cout << "--------------------------------" << endl;
         cout << "To Onoma Einai " << Product_Name << endl;
         cout << "--------------------------------" << endl;
         /*Varos Tha Metatrepetai Panta Se kg*/
-        cout << "Dwse Varos Tou Proiontos" << endl;
+        cout << "Dwse Varos Tou Proiontos Ypoxreotika Megalutero Iso Tou 0" << endl;
         cin >> Weight;
+        Weight = eisodos_varous(&Weight);
         cout << "--------------------------------" << endl;
         cout << "Se Ti Monada Metrhshs Einai To Varos Tou Prointos?(Epilexe A eite B eite C)" << endl;
         cout << "--------------------------------" << endl;
         string epilogh;
         do
         {
-            cout << "A.mg" << endl;
-            cout << "B.gr" << endl;
-            cout << "C.kg" << endl;
+            cout << "A.mg" << endl; // Miligram
+            cout << "B.gr" << endl; // Gram
+            cout << "C.kg" << endl; // Kilogram
             cout << "D.kamia" << endl;
             cin >> epilogh;
         } while (epilogh == "D");
-        cout << "To Proion Einai " << metatroph_varous(&epilogh, &Weight) << " Kila" << endl;
+        Weight = metatroph_varous(&epilogh, &Weight);
+        cout << "To Proion Einai " << Weight << " Kila" << endl;
         cout << "--------------------------------" << endl;
-        cout << "Dwse Thermides Gia To Proion" << endl;
+        cout << "Dwse Thermides Gia To Proion Ypoxreotika Megalutero Iso Tou 0" << endl;
         cin >> Calories;
+        Calories = eisodos_thermidwn(&Calories);
         cout << "--------------------------------" << endl;
-        cout << "Dwse Proitenes Gia To Proion" << endl;
+        cout << "Dwse Proitenes Gia To Proion Ypoxrewtika Megalutero Iso Tou 0" << endl;
         cin >> Proteins;
+        Proteins = eisodos_proteinwn(&Proteins);
         cout << "--------------------------------" << endl;
+        /*Twra Pame Na Ftiaxoume Tis Eisodous Gia To Product_ID Kai To Expiration Date
+        O kwdikos thelw na einai monadikos
+        */
     }
     return 0;
 }
