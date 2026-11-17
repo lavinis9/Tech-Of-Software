@@ -26,7 +26,6 @@ public:
 };
 
 /*Kommati Sunarthsewn*/
-
 double metatroph_varous(string *ep, double *wht)
 {
     if (*ep == "A")
@@ -40,6 +39,10 @@ double metatroph_varous(string *ep, double *wht)
     else if (*ep == "C")
     {
         return *wht;
+    }
+    else
+    {
+        throw invalid_argument("Aderfe den ginetai na mhn exei varos to proion KSANAVALE!!!");
     }
 }
 /*          */
@@ -106,14 +109,14 @@ int main()
     for (int i = 0; i < count; i++)
     {
         cout << "--------------------------------" << endl;
-        cout << "Twra Mporeis Na Ftiaxeis" << count << "Prointa Gia Faghto" << endl;
+        cout << "Twra Mporeis Na Ftiaxeis " << count << " Prointa Gia Faghto" << endl;
         cout << "--------------------------------" << endl;
         /*Prwta Thelw Na Diavazw To Onoma Tou Proiontos*/
-        cin.ignore(); // Gia Na Glitwsw Tuxon Enapomeinanta Stoixeia Sto Input Buffer Kai Na Proxwrisw Me Epituxia Stis Epomenes Eisodous
+        cin.ignore(); // Gia Na Glitwsw Tuxon Enapomeinanta Stoixeia Sto Input Buffer Kai Na Proxwrisw Sta Epomena Inputs
         cout << "Vale Onoma Proiontos (Oti Thes)" << endl;
         getline(cin, Product_Name);
         cout << "--------------------------------" << endl;
-        cout << "To Onoma Einai " << Product_Name << endl;
+        cout << "To Onoma Einai tou prointos einai " << Product_Name << endl;
         cout << "--------------------------------" << endl;
         /*Varos Tha Metatrepetai Panta Se kg*/
         cout << "Dwse Varos Tou Proiontos Ypoxreotika Megalutero Iso Tou 0" << endl;
@@ -131,7 +134,14 @@ int main()
             cout << "D.kamia" << endl;
             cin >> epilogh;
         } while (epilogh == "D");
-        Weight = metatroph_varous(&epilogh, &Weight);
+        try
+        {
+            Weight = metatroph_varous(&epilogh, &Weight);
+        }
+        catch (invalid_argument &e)
+        {
+            cout << e.what() << endl;
+        }
         cout << "To Proion Einai " << Weight << " Kila" << endl;
         cout << "--------------------------------" << endl;
         cout << "Dwse Thermides Gia To Proion Ypoxreotika Megalutero Iso Tou 0" << endl;
