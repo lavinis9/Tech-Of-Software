@@ -3,6 +3,7 @@
 #include <stdexcept>
 #include <limits>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -206,34 +207,12 @@ int main()
         cout << "Dwse Kwdiko Proiontos Prosoxh Prepei Na Einai Monadikos" << endl;
         cin >> Product_ID;
         cout << "--------------------------------" << endl;
-        if (v1.empty())
+        while (find(v1.begin(), v1.end(), Product_ID) != v1.end())
         {
-            v1.push_back(Product_ID);
+            cout << "Ksanavale Kwdiko Den Einai Monadikos" << endl;
+            cin >> Product_ID;
         }
-        else
-        {
-            cout << "Elegxe Monadikothta Kwdikou" << endl;
-            cout << "--------------------------------" << endl;
-            v1.push_back(Product_ID);
-            for (int i = 1; i < count; i++)
-            {
-                while (v1[i - 1] == v1[i] || v1[0] == v1[i])
-                {
-                    if (cin.fail())
-                    {
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    }
-                    cout << "Ksanavale Kwdiko Den Einai Monadikos " << endl;
-                    cout << "--------------------" << endl;
-                    v1.erase(v1.begin() + i);
-                    cin >> Product_ID;
-                    v1.push_back(Product_ID);
-                }
-                cout << "Komple" << endl;
-                cout << "--------------------" << endl;
-            }
-        }
+        v1.push_back(Product_ID);
         cout << "Emfanise To Vector" << endl;
         cout << "--------------------" << endl;
         for (int i = 0; i < v1.size(); i++)
