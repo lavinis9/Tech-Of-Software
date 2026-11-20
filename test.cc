@@ -3,7 +3,7 @@
 #include <stdexcept>
 #include <limits>
 #include <vector>
-#include <algorithm>
+#include <unordered_set>
 
 using namespace std;
 
@@ -115,6 +115,24 @@ double eisodos_proteinwn(double pr)
 }
 /*          */
 /*         */
+long long eisodos_kwdikou(long long pr1)
+{
+    while (pr1 <= 0)
+    {
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cout << "Ksanavale Proteines" << endl;
+        cout << "--------------------" << endl;
+        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Arithmo Prwteinwn" << endl;
+        cin >> pr1;
+    }
+    return pr1;
+}
+/*          */
+/*         */
 int main()
 {
     cout << "KalwsHrthes Sir" << endl;
@@ -124,7 +142,6 @@ int main()
     long Expiration_Date; // Διορθώθηκε σε long
     double Weight, Calories, Proteins;
     vector<long long> v1; // Dhlwsh Vector Gia Monadikothta Kwdikou
-
     cout << "Posa Prointa Theleis Na Eisageis???" << endl;
     cout << "-----------------------------------" << endl;
     cout << "Prepei Na Einai Ypoxrewtika MegaLutero Iso Tou 0" << endl;
@@ -206,17 +223,38 @@ int main()
         /*EISAGWGH MONADIKOU KWDIKOU PROIONTOS Product_Id*/
         cout << "Dwse Kwdiko Proiontos Prosoxh Prepei Na Einai Monadikos" << endl;
         cin >> Product_ID;
-        cout << "--------------------------------" << endl;
-        while (find(v1.begin(), v1.end(), Product_ID) != v1.end())
+        if (cin.fail())
         {
-            cout << "Ksanavale Kwdiko Den Einai Monadikos" << endl;
-            cin >> Product_ID;
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        v1.push_back(Product_ID);
-        cout << "Emfanise To Vector" << endl;
-        cout << "--------------------" << endl;
-        for (int i = 0; i < v1.size(); i++)
-            cout << v1[i] << endl;
+        Product_ID = eisodos_kwdikou(Product_ID);
+        if (v1.empty())
+        {
+            v1.push_back(Product_ID);
+        }
+        else
+        {
+            v1.push_back(Product_ID);
+            for (int i = 0; i < v1.size() - 1; i++)
+            {
+                for (int k = i + 1; k < v1.size(); k++)
+                {
+                    while (v1[k] == v1[i])
+                    {
+                        cout << "Ksanavale Kwdiko Den Einai Monadikos" << endl;
+                        v1.erase(v1.begin() + k);
+                        cin >> Product_ID;
+                        Product_ID = eisodos_kwdikou(Product_ID);
+                        v1.push_back(Product_ID);
+                        i = 0;
+                    }
+                }
+            }
+            cout << "Emfanisei Vector " << endl;
+            for (auto i : v1)
+                cout << i << endl;
+        }
     }
     return 0;
 }
