@@ -1,11 +1,14 @@
 #include <iostream>
 #include <string>
-#include <stdexcept>
 #include <limits>
 #include <vector>
-#include <unordered_set>
+#include <chrono>
+#include <windows.h>
+#include <map>
 
 using namespace std;
+using namespace std::chrono;
+using namespace chrono;
 
 class APP
 {
@@ -124,28 +127,96 @@ long long eisodos_kwdikou(long long pr1)
             cin.clear();
             cin.ignore(numeric_limits<streamsize>::max(), '\n');
         }
-        cout << "Ksanavale Proteines" << endl;
+        cout << "Ksanavale Kwdiko" << endl;
         cout << "--------------------" << endl;
-        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Arithmo Prwteinwn" << endl;
+        cout << " Thelw Thetiko Kai Oxi Iso Me 0 Kwdiko Prointos" << endl;
         cin >> pr1;
     }
     return pr1;
 }
 /*          */
 /*         */
+int eisodos_meras(int da)
+{
+    while (da < 1 || da > 31)
+    {
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cout << "Den Ginetai Na Dwseis Auth Thn Mera" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Ksanadwse " << endl;
+        cin >> da;
+    }
+    return da;
+}
+/*          */
+/*         */
+int eisodos_mhna(int mhn)
+{
+    while (mhn < 1 || mhn > 12)
+    {
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cout << "Den Ginetai Na Dwseis Auto Thn Mhna" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Ksanadwse " << endl;
+        cin >> mhn;
+    }
+    return mhn;
+}
+/*          */
+/*         */
+int eisodos_etos(int et)
+{
+    while (et < 2026 || et > 3000)
+    {
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        cout << "Den Ginetai Na Dwseis Auto To Etos" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Ksanadwse " << endl;
+        cin >> et;
+    }
+    return et;
+}
+/*          */
+/*         */
+string saresei(string a1111)
+{
+    while (a1111 != "Y" && a1111 != "N")
+    {
+        cout << "Den Ginetai Prepei Na Valeis Kati Apo Thn Lista" << endl;
+        cout << "-----------------------------------" << endl;
+        cout << "Ksanavale Partale Mou" << endl;
+        cin >> a1111;
+    }
+    return a1111;
+}
+/*          */
+/*         */
+// Thelw Na Epistrepsw Ena Vector
 int main()
 {
     cout << "KalwsHrthes Sir" << endl;
-    int count;
+    int count, day, month, year;
     string Product_Name;
-    long long Product_ID; // Διορθώθηκε σε long long
-    long Expiration_Date; // Διορθώθηκε σε long
+    long long Product_ID;
     double Weight, Calories, Proteins;
     vector<long long> v1; // Dhlwsh Vector Gia Monadikothta Kwdikou
+    string areskia;
+    map<string, string> m1;
     cout << "Posa Prointa Theleis Na Eisageis???" << endl;
     cout << "-----------------------------------" << endl;
     cout << "Prepei Na Einai Ypoxrewtika MegaLutero Iso Tou 0" << endl;
-
     cin >> count;
     while (cin.fail() || count <= 0)
     {
@@ -243,6 +314,7 @@ int main()
                     while (v1[k] == v1[i])
                     {
                         cout << "Ksanavale Kwdiko Den Einai Monadikos" << endl;
+                        cout << "--------------------------------" << endl;
                         v1.erase(v1.begin() + k);
                         cin >> Product_ID;
                         Product_ID = eisodos_kwdikou(Product_ID);
@@ -252,9 +324,77 @@ int main()
                 }
             }
             cout << "Emfanisei Vector " << endl;
+            cout << "--------------------------------" << endl;
             for (auto i : v1)
                 cout << i << endl;
         }
+        // HMEROMHNIA LHKSHS
+        cout << "Dwse Hmeromhnia Lhkshs Tou Prointos" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Dwse Mera Lhkshs" << endl;
+        cout << "--------------------------------" << endl;
+        cin >> day;
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        day = eisodos_meras(day);
+        cout << "--------------------------------" << endl;
+        cout << "Dwse Mhna Lhkshs" << endl;
+        cout << "--------------------------------" << endl;
+        cin >> month;
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        month = eisodos_mhna(month);
+        cout << "--------------------------------" << endl;
+        cout << "Dwse Etos Lhkshs" << endl;
+        cout << "--------------------------------" << endl;
+        cin >> year;
+        if (cin.fail())
+        {
+            cin.clear();
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        }
+        year = eisodos_etos(year);
+        cout << "H Hmeromhnia Lhkshs Tou " << Product_Name << " Einai " << day << "/" << month << "/" << year << endl;
+        cout << "--------------------------------" << endl;
+        cout << "To Proion Pou Kataxwrhses Dhladh To " << Product_Name << " Sou Aresei???" << endl;
+        cout << "--------------------------------" << endl;
+        cout << "Dwse Mou Apanthsh " << endl;
+        cout << "--------------------------------" << endl;
+        do
+        {
+            cout << "Y.NAI" << endl;
+            cout << "N.OXI" << endl;
+            cout << "O.KAMIA(DEN GINETAI KSANADWSE)" << endl;
+            cin >> areskia;
+            areskia = saresei(areskia);
+        } while (areskia == "O");
+        if (areskia == "Y")
+        {
+            cout << "S'Aresei To Proion" << endl;
+            m1.insert({Product_Name, areskia});
+        }
+        else if (areskia == "N")
+        {
+            cout << "Den Sou Aresei Auto To Proion" << endl;
+            cout << "--------------------------------" << endl;
+            cout << "Mhn Kaneis Kati" << endl;
+        }
+        for (auto it : m1)
+        {
+            cout << it.first << " einai apo ta agaphmena sou prointa: " << it.second << endl;
+        }
     }
+    // Apo To Windows API Pernw Thn Hmeromhnia Pou Xrhsimopoiw Thn Efarmogh Ara Auth Pou Kataxwrw Ta Proionta
+    SYSTEMTIME st;
+    GetLocalTime(&st);
+    cout << "H Hmeromina Pou Kataxwreises Ta Prointa Einai :" << endl;
+    cout << st.wDay << "/" << st.wMonth << "/" << st.wYear << endl;
+    cout << "--------------------------------" << endl;
     return 0;
 }
